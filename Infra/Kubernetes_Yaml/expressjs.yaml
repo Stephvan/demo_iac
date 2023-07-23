@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hackathon
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: smartrooves
+        version: v1
+    spec:
+      containers:
+      - name: hackathon
+        image: registry/repository:v1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+      imagePullSecrets:
+      - name: ocirsecret  
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: smartrooves
+  labels:
+    app: smartrooves
+spec:
+  ports:
+  - port: 8080
+    name: http
+  selector:
+    app: smartrooves
