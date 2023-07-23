@@ -1,7 +1,11 @@
 module "aws_vpc" {
-  source          = "https://github.com/Stephvan/terraform-vpc.git"
+  source          = "github.com/Stephvan/terraform-vpc.git"
   networking      = var.networking
   security_groups = var.security_groups
+}
+# ECR
+resource "aws_ecr_repository" "main" {
+  name = var.ecr_repo_name
 }
 
 # EKS Cluster
@@ -59,8 +63,8 @@ resource "aws_eks_addon" "addons" {
   resolve_conflicts = "OVERWRITE"
 }
 
-resource "aws_iam_openid_connect_provider" "default" {
+/* resource "aws_iam_openid_connect_provider" "default" {
   url             = "https://${local.oidc}"
   client_id_list  = ["sts.amazonaws.com"]
   thumbprint_list = ["9e99a48a9960b14926bb7f3b02e22da2b0ab7280"]
-}
+} */

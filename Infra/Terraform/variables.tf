@@ -74,6 +74,34 @@ variable "security_groups" {
   }]
 }
 
+variable "public_subnet_name" {
+  type    = string
+  default = "public_subnet-${count.index}"
+}
+
+variable "private_subnet_name" {
+  type    = string
+  default = "private_subnet-${count.index}"
+}
+
+variable "internet_gateway_name" {
+  type    = string
+  default = "i_gateway"
+}
+
+variable "eip_name" {
+  type    = string
+  default = "eip-${count.index}"
+}
+
+variable "public_route_table_name" {
+  description = "route table name"
+}
+
+variable "private_route_table_name" {
+  description = "route table name"
+}
+
 variable "cluster_config" {
   type = object({
     name    = string
@@ -159,4 +187,8 @@ variable "addons" {
       version = "v1.6.2-eksbuild.0"
     }
   ]
+}
+
+variable "ecr_repo_name" {
+  description = "Name for the ECR repository"
 }
