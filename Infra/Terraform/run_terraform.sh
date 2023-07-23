@@ -13,6 +13,9 @@ clear
 # Check if Terraform is installed
 check_command "terraform"
 
+# Cleanup - remove any existing plan file
+rm *.tfplan
+
 # Initialize Terraform
 echo "Initializing Terraform..."
 terraform init
@@ -30,6 +33,6 @@ echo "Applying Terraform plan..."
 terraform apply -input=false "my_plan.tfplan"
 
 # Cleanup - remove the plan file
-#rm my_plan.tfplan
+rm my_plan.tfplan
 
 echo "Terraform apply completed successfully."
