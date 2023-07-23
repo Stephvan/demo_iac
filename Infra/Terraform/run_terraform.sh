@@ -15,6 +15,9 @@ check_command "terraform"
 
 # Cleanup - remove any existing plan file
 rm *.tfplan
+rm *.hcl
+rm *.tfstate
+rm *.tfstate.backup
 
 # Initialize Terraform
 echo "Initializing Terraform..."
