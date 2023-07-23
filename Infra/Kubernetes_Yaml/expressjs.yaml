@@ -32,30 +32,3 @@ spec:
       port: 80
       targetPort: 3000
 
-# Ingress Class
-apiVersion: networking.k8s.io/v1
-kind: IngressClass
-metadata:
-  name: nginx
-spec:
-  controller: k8s.io/ingress-nginx
-
-# Ingress
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: express-app-ingress
-  annotations:
-    kubernetes.io/ingress.class: "nginx"
-spec:
-  rules:
-    - host: your-hostname.example.com
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: express-app-service
-                port:
-                  number: 80
