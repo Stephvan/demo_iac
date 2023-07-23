@@ -107,6 +107,8 @@ addons = [
   }
 ]
 
+ecr_repo_name       = "lifebit-dev-default-ecrrepo-01"
+
 public_subnet_name  = "lifebit-dev-default-publicsubnet-01"
 private_subnet_name  = "lifebit-dev-default-privatesubnet-01"
 internet_gateway_name  = "lifebit-dev-default-igw-01"
