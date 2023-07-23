@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "my-express-app-chart.fullname" . }}
+  name: {{ .Values.app.name }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ include "my-express-app-chart.fullname" . }}
+      app: {{ .Values.app.name }}
   template:
     metadata:
       labels:
-        app: {{ include "my-express-app-chart.fullname" . }}
+        app: {{ .Values.app.name }}
     spec:
       containers:
-        - name: express
+        - name: {{ .Values.app.name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           ports:
             - containerPort: 3000
