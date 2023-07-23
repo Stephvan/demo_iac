@@ -62,8 +62,8 @@ node_groups = [
     capacity_type  = "ON_DEMAND"
     disk_size      = 100
     scaling_config = {
-      desired_size = 9
-      max_size     = 10
+      desired_size = 19
+      max_size     = 20
       min_size     = 1
     }
     update_config = {
@@ -77,8 +77,8 @@ node_groups = [
     capacity_type  = "SPOT"
     disk_size      = 100
     scaling_config = {
-      desired_size = 9
-      max_size     = 10
+      desired_size = 19
+      max_size     = 20
       min_size     = 1
     }
     update_config = {
@@ -91,19 +91,19 @@ node_groups = [
 addons = [
   {
     name    = "kube-proxy"
-    version = "v1.22.6-eksbuild.1"
+    version = "v1.27.1-eksbuild.1"
   },
   {
     name    = "vpc-cni"
-    version = "v1.11.0-eksbuild.1"
+    version = "v1.12.6-eksbuild.2"
   },
   {
     name    = "coredns"
-    version = "v1.8.7-eksbuild.1"
+    version = "v1.10.1-eksbuild.2"
   },
   {
     name    = "aws-ebs-csi-driver"
-    version = "v1.6.2-eksbuild.0"
+    version = "v1.12.6-eksbuild.2"
   }
 ]
 

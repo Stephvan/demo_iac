@@ -1,35 +1,61 @@
+# Deployment
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hackathon
+  name: express-app-deployment
 spec:
-  replicas: 1
+  replicas: 3
+  selector:
+    matchLabels:
+      app: express-app
   template:
     metadata:
       labels:
-        app: smartrooves
-        version: v1
+        app: express-app
     spec:
       containers:
-      - name: hackathon
-        image: registry/repository:v1
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 8080
-          protocol: TCP
-      imagePullSecrets:
-      - name: ocirsecret  
-      restartPolicy: Always
----
+        - name: express-app
+          image: your-express-app-image:latest
+          ports:
+            - containerPort: 3000
+
+# Service
 apiVersion: v1
 kind: Service
 metadata:
-  name: smartrooves
-  labels:
-    app: smartrooves
+  name: express-app-service
 spec:
-  ports:
-  - port: 8080
-    name: http
   selector:
-    app: smartrooves
+    app: express-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+
+# Ingress Class
+apiVersion: networking.k8s.io/v1
+kind: IngressClass
+metadata:
+  name: nginx
+spec:
+  controller: k8s.io/ingress-nginx
+
+# Ingress
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: express-app-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  rules:
+    - host: your-hostname.example.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: express-app-service
+                port:
+                  number: 80
