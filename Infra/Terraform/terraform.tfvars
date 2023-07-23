@@ -62,8 +62,8 @@ node_groups = [
     capacity_type  = "ON_DEMAND"
     disk_size      = 100
     scaling_config = {
-      desired_size = 2
-      max_size     = 3
+      desired_size = 9
+      max_size     = 10
       min_size     = 1
     }
     update_config = {
@@ -77,8 +77,8 @@ node_groups = [
     capacity_type  = "SPOT"
     disk_size      = 100
     scaling_config = {
-      desired_size = 1
-      max_size     = 1
+      desired_size = 9
+      max_size     = 10
       min_size     = 1
     }
     update_config = {
