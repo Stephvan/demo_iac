@@ -29,11 +29,15 @@ jobs:
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
 
+    - name: Set Docker context
+      run: echo "::set-env name=DOCKER_CONTEXT::$GITHUB_WORKSPACE/Application/api-with-express-and-handlebars"
+
     - name: Build and Push Docker images
+      env:
+        DOCKERFILE_PATH: ${{ env.DOCKER_CONTEXT }}/Dockerfile
+        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        ECR_REPOSITORY: docker_nodejs_demo
+        IMAGE_TAG: nodejs_demo_image
       run: |
-        for dockerfile in $(find . -name "Dockerfile" -type f); do
-          dir=$(dirname $dockerfile)
-          tag=your-dockerhub-username/$(basename $dir):${{ github.sha }}
-          docker build -t $tag $dir
-          docker push $tag
-        done
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f $DOCKERFILE_PATH $DOCKER_CONTEXT
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
