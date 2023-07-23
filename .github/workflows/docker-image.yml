@@ -30,7 +30,7 @@ jobs:
       uses: aws-actions/amazon-ecr-login@v1
 
     - name: Set Docker context
-      run: echo "::set-env name=DOCKER_CONTEXT::$GITHUB_WORKSPACE/Application/api-with-express-and-handlebars"
+      run: echo "DOCKER_CONTEXT=${GITHUB_WORKSPACE}/Application/api-with-express-and-handlebars" >> $GITHUB_ENV
 
     - name: Build and Push Docker images
       env:
