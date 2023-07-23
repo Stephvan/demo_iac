@@ -76,12 +76,10 @@ variable "security_groups" {
 
 variable "public_subnet_name" {
   type    = string
-  default = "public_subnet-${count.index}"
 }
 
 variable "private_subnet_name" {
   type    = string
-  default = "private_subnet-${count.index}"
 }
 
 variable "internet_gateway_name" {
@@ -91,7 +89,6 @@ variable "internet_gateway_name" {
 
 variable "eip_name" {
   type    = string
-  default = "eip-${count.index}"
 }
 
 variable "public_route_table_name" {
