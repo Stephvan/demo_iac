@@ -33,7 +33,7 @@ jobs:
       run: tree -h
 
     - name: Create environment file with Docker context
-      run: echo "DOCKER_CONTEXT=$(pwd)/Application/api-with-express-and-handlebars" >> $GITHUB_ENV
+      run: echo "DOCKER_CONTEXT=/Application/api-with-express-and-handlebars" >> $GITHUB_ENV
 
     - name: Build and Push Docker images
       env:
