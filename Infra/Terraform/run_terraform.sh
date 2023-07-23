@@ -33,7 +33,7 @@ export TF_LOG=DEBUG
 
 # Apply the plan with debug output
 echo "Applying Terraform plan..."
-terraform apply -input=false "my_plan.tfplan"
+#terraform apply -input=false "my_plan.tfplan"
 
 # Cleanup - remove the plan file
 rm my_plan.tfplan
