@@ -1,0 +1,4 @@
+apiVersion: v2
+name: my-express-app-chart
+description: A Helm chart for deploying the Express app
+version: 0.1.0

@@ -1,0 +1,10 @@
+replicaCount: 5
+image:
+  repository: 961146733711.dkr.ecr.us-west-2.amazonaws.com/lifebit-dev-default-ecrrepo-01
+  tag: 202307231554
+  pullPolicy: IfNotPresent
+
+service:
+  type: LoadBalancer
+  port: 80
+  targetPort: 3000
