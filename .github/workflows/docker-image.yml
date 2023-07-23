@@ -48,5 +48,6 @@ jobs:
         IMAGE_TAG: nodejs_demo_image
       run: |
         cd Application/api-with-express-and-handlebars
+        ls -a
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
