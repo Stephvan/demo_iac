@@ -13,7 +13,7 @@ spec:
         app: nginx
     spec:
       containers:
-        - name: nginx
-          image: nginx:latest
+        - name: express
+          image: 961146733711.dkr.ecr.us-west-2.amazonaws.com/lifebit-dev-default-ecrrepo-01:202307231554
           ports:
-            - containerPort: 80
+            - containerPort: 3000
