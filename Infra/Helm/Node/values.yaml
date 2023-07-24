@@ -14,7 +14,7 @@ service:
   targetPort: 3000
 
 resources:
-  cpuLimit: "100m"
-  cpuRequest: "200m"
+  cpuLimit: "200m"
+  cpuRequest: "100m"
   memoryLimit: "512Mi"
   memoryRequest: "256Mi"
