@@ -91,13 +91,13 @@ variable "eip_name" {
   type    = string
 }
 
-variable "public_route_table_name" {
+/* variable "public_route_table_name" {
   description = "route table name"
 }
 
 variable "private_route_table_name" {
   description = "route table name"
-}
+} */
 
 variable "cluster_config" {
   type = object({
