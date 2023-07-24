@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: express
-          image: 961146733711.dkr.ecr.us-west-2.amazonaws.com/lifebit-dev-default-ecrrepo-01:202307241316
+          image: 961146733711.dkr.ecr.us-west-2.amazonaws.com/lifebit-dev-default-ecrrepo-01:202307241636
           ports:
             - containerPort: 3000
           resources:
