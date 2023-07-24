@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: lifebitdemo-deployment
 spec:
-  replicas: 5
+  replicas: 2
   selector:
     matchLabels:
       app: lifebitdemo
@@ -43,7 +43,7 @@ spec:
 
 ---
 
-apiVersion: autoscaling/v2beta2
+apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: lifebitdemo-hpa
@@ -60,4 +60,4 @@ spec:
         name: cpu
         target:
           type: Utilization
-          averageUtilization: 50  # Target average CPU utilization percentage (adjust as needed)
+          averageUtilization: 10  # Target average CPU utilization percentage (adjust as needed)
