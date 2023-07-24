@@ -113,5 +113,5 @@ public_subnet_name  = "lifebit-dev-default-publicsubnet-01"
 private_subnet_name  = "lifebit-dev-default-privatesubnet-01"
 internet_gateway_name  = "lifebit-dev-default-igw-01"
 eip_name                  = "lifebit-dev-default-eip-01"
-public_route_table_name  = "lifebit-dev-default-pubrttable-01"
-private_route_table_name  ="lifebit-dev-default-prirttable"
+/* public_route_table_name  = "lifebit-dev-default-pubrttable-01"
+private_route_table_name  ="lifebit-dev-default-prirttable" */
