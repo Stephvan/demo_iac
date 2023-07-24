@@ -2,6 +2,11 @@ module "aws_vpc" {
   source          = "github.com/Stephvan/terraform-vpc.git"
   networking      = var.networking
   security_groups = var.security_groups
+  public_subnet_name = var.public_subnet_name
+  private_subnet_name = var.private_subnet_name
+  eip_name  = var.eip_name
+  public_route_table_name = var.public_route_table_name
+  private_route_table_name = var.private_route_table_name
 }
 # ECR
 resource "aws_ecr_repository" "main" {
