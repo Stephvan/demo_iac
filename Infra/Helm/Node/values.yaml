@@ -12,3 +12,9 @@ service:
   type: LoadBalancer
   port: 80
   targetPort: 3000
+
+resources:
+  cpuLimit: "100m"
+  cpuRequest: "200m"
+  memoryLimit: "512Mi"
+  memoryRequest: "256Mi"
