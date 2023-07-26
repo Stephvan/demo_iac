@@ -6,6 +6,13 @@ module "aws_vpc" {
   private_subnet_name = var.private_subnet_name
   eip_name  = var.eip_name
 }
+
+# SSH Key
+resource "aws_key_pair" "node_key_pair" {
+  key_name = var.ssh-key_name
+  public_key = file("~/.ssh/id_rsa.pub")
+}
+
 # ECR
 resource "aws_ecr_repository" "main" {
   name = var.ecr_repo_name
@@ -50,7 +57,13 @@ resource "aws_eks_node_group" "node-ec2" {
   instance_types = each.value.instance_types
   capacity_type  = each.value.capacity_type
   disk_size      = each.value.disk_size
-
+  
+  remote_access_config {
+    ec2_ssh_key_pair_id = aws_key_pair.node_key_pair.key_pair_id
+    source_security_group_ids = [
+      flatten(module.aws_vpc.security_groups_id)
+    ]
+  }
   depends_on = [
     aws_iam_role_policy_attachment.AmazonEKSWorkerNodePolicy,
     aws_iam_role_policy_attachment.AmazonEC2ContainerRegistryReadOnly,

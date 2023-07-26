@@ -19,6 +19,10 @@ variable "networking" {
   }
 }
 
+variable "ssh-key_name" {
+  description = "Name of SSH key"
+}
+
 variable "security_groups" {
   type = list(object({
     name        = string

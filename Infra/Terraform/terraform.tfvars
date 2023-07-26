@@ -11,6 +11,8 @@ networking = {
   nat_gateways    = true
 }
 
+ssh-key_name = "lifebit-dev-node-sshkey-01"
+
 # Security Groups Configuration
 security_groups = [
   {
