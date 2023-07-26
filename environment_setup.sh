@@ -12,10 +12,8 @@ else
   ssh-keygen -t rsa -b 4096 -f "$SSH_KEY_FILE" -N ""
 fi
 
-#!/bin/bash
-
 # Replace the following variables with your actual Git repo details and GitHub PAT
-GIT_REPO_1_URL="https://github.com/Stephvan/lifebitdemo.gits"
+GIT_REPO_1_URL="https://github.com/Stephvan/lifebitdemo.git"
 GIT_REPO_2_URL="https://github.com/Stephvan/lifebit-source-code.git"
 FOLDER_1="repo_1_folder"
 FOLDER_2="repo_2_folder"
