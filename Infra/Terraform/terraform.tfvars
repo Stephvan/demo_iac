@@ -40,7 +40,7 @@ security_groups = [
         protocol         = "tcp"
         from_port        = 22
         to_port          = 22
-        cidr_blocks      = ["0.0.0.0/0"]
+        cidr_blocks      = ["74.19.2.23"]
         ipv6_cidr_blocks = []
       },
     ]

@@ -58,12 +58,12 @@ resource "aws_eks_node_group" "node-ec2" {
   capacity_type  = each.value.capacity_type
   disk_size      = each.value.disk_size
   
-  remote_access_config {
-    ec2_ssh_key_pair_id = aws_key_pair.node_key_pair.key_pair_id
-    source_security_group_ids = [
-      flatten(module.aws_vpc.security_groups_id)
-    ]
-  }
+  # remote_access_config {
+  #   ec2_ssh_key_pair_id = aws_key_pair.node_key_pair.key_pair_id
+  #   source_security_group_ids = [
+  #     flatten(module.aws_vpc.security_groups_id)
+  #   ]
+  # }
   depends_on = [
     aws_iam_role_policy_attachment.AmazonEKSWorkerNodePolicy,
     aws_iam_role_policy_attachment.AmazonEC2ContainerRegistryReadOnly,
