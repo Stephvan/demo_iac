@@ -168,5 +168,5 @@ echo "Both Git repositories cloned and checked out on the '$GIT_BRANCH' branch. 
 #   echo "Error: Failed to execute the Terraform script."
 #   exit 1
 # fi
-
+#
 # echo "Both Git repositories cloned and checked out on the '$GIT_BRANCH' branch. Terraform script executed successfully."
