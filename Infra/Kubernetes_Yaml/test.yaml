@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: lifebitdemo-deployment
+  name: demoapp-deployment
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: lifebitdemo
+      app: demoapp
   template:
     metadata:
       labels:
-        app: lifebitdemo
+        app: demoapp
     spec:
       containers:
         - name: express
-          image: 961146733711.dkr.ecr.us-west-2.amazonaws.com/lifebit-dev-default-ecrrepo-01:202308010826
+          image: 961146733711.dkr.ecr.us-west-2.amazonaws.com/lifebit-dev-default-ecrrepo-01:202307241636
           ports:
             - containerPort: 3000
           resources:
@@ -29,10 +29,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: lifebitdemo-service
+  name: demoapp-service
 spec:
   selector:
-    app: lifebitdemo
+    app: demoapp
   ports:
     - protocol: TCP
       port: 80
@@ -44,12 +44,12 @@ spec:
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: lifebitdemo-hpa
+  name: demoapp-hpa
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: lifebitdemo-deployment
+    name: demoapp-deployment
   minReplicas: 1
   maxReplicas: 10
   metrics:
